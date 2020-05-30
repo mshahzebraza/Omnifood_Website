@@ -1,0 +1,25 @@
+{
+  "name": "selectivizr",
+  "version": "1.0.3",
+  "description": "selectivizr is a JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8.",
+  "main": "selectivizr.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gisu@github.com/gisu/selectivizr.git"
+  },
+  "keywords": [
+    "polyfill"
+  ],
+  "author": "keithclark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gisu/selectivizr/issues"
+  },
+  "homepage": "https://github.com/gisu/selectivizr#readme"
+}

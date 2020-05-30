@@ -1,0 +1,687 @@
+/*
+Orange: #e67e22
+*/
+
+
+/*-------------------------------------*/
+/* BASIC SETUP */
+/*-------------------------------------*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-transition: all .2s ;
+    transition: all .2s ;
+}
+*:focus{
+    outline: none;
+}
+html,body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial',sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility; /* New */
+    overflow-x: hidden;
+}
+
+.clearfix{zoom: 1} /* New */
+.clearfix:after{
+    content: "";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+
+/*-------------------------------------*/
+/* REUSABLE COMPONENTS */
+/*-------------------------------------*/
+
+.row{
+    max-width: 1140px;
+    margin: auto;
+/*    position: relative; adj 1*/
+}
+
+section{
+    padding: 80px 0;
+}
+
+.box{
+    padding: 1%;
+}
+
+ul{
+    list-style: none;
+}
+/* -------------- HEADINGS --------------- */
+
+
+h1,h2,h3{
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h1{ /* Main Landing Page Headline only*/
+    margin: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    word-spacing: 4px;
+    font-size: 240%;
+    letter-spacing: 1px;
+}
+
+h2{ /* Section headings */
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h2:after{ /* Section Seperator Line */
+    margin: 0 auto;
+    margin-top: 30px;
+    content: "";
+    width: 100px;
+    height: 2px;
+    display: block;
+    background-color: #e67e22;
+}
+
+h3{ /* Heading for elements in section e.g cityName,*/
+    font-size: 110%;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: rgb(78, 78, 78);
+}
+
+/* -------------- PARAGRAPHS --------------- */
+
+.longCopy{ /* Section Headline Description */
+    line-height: 145%;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.box p{ /* Used once for icon section description */
+    font-size: 90%;
+    line-height: 145%;
+}
+
+/* -------------- ICONS --------------- */
+
+.iconBig{ /* Icon Section */
+    font-size: 300%;
+    display: block;
+    color: #e67e22;
+    /* margin: auto; */
+    margin-bottom: 30px;
+}
+
+img.iconBig{
+    width: 200%;
+}
+.iconSmall{ /* CitySection Description icons */
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    color: #e67e22;
+    font-size: 120%;
+    margin-right: 10px;
+
+    /* Secrets to align text and icons */
+    
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+/* -------------- LINKS --------------- */
+a:link,a:visited{
+    color: #e67e22;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #e67e22;
+    -webkit-transition: border-bottom 0.2s, color 0.2s;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover, a:active{
+    color: #555;
+    border-bottom: 1px solid transparent;
+}
+
+/* -------------- BUTTONS --------------- */
+
+.btn:link , 
+.btn:visited,
+input[type=submit],
+input[type=submit]{
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 20px;
+    /* margin-top: 20px; */
+    -webkit-transition: background-color 0.2s , border 0.2s , color 0.2s ;
+    transition: background-color 0.2s , border 0.2s , color 0.2s ;
+}
+
+.btnFull:link , 
+.btnFull:visited,
+input[type=submit]{
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.btnGhost:link , 
+.btnGhost:visited{
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
+
+
+.btn:hover , 
+.btn:active,input[type=submit]:hover{
+    background-color: #cf6d17;
+}
+
+.btnFull:hover , 
+.btnFull:active,input[type=submit]:hover{
+    border: 1px solid #cf6d17;
+}
+
+.btnGhost:hover , 
+.btnGhost:active{
+    border: 1px solid #cf6d17;
+    color: #fff;
+}
+
+/*-------------------------------------*/
+/* HEADER */
+/*-------------------------------------*/
+
+header{
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(../resources/css/img/hero.jpg); */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/hero1.jpg);
+    /* Breakthrough: url path problem
+        Option 1 : starting without anything
+            This will look for whatever is specified directly inside the folder in which the style sheet is located. For instance       'url(img/hero.jpg)' = 'url(../css/img/hero.jpg)' = 'url(./img/hero.jpg)'----> {stylesheet folder}/img/hero.jpg
+        
+        Important Tip : 
+            '..' = 'back folder'
+
+        Option 2 : starting with ' ../ '
+            This ( '..' ) gets you one step back from the stylesheet folder to a place where you can use forward slash '/' to either go back into stylesheet folder OR you can choose to visit the folders which are siblings to the parent folder of stylesheet, which in this case is resources.
+    */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* cool effect half parallax*/
+    height: 100vh;
+
+}
+
+.heroTextBox{
+    position: absolute;
+    width: 1140px;
+/*    I thought no need above */
+    top: 50%; 
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+}
+
+.logo{
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+/* .logo{display: none;} */
+
+.logoBlack{
+    height: 50px;
+    width: auto;
+    color: #333;
+    float: left;
+    margin: 5px 0;
+    display:none;
+}
+
+/* Main Navigation */
+
+.mainNav{
+    float: right;
+    list-style: none;
+    margin-top: 50px;
+/* 
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-50%);         adj 1 */
+    
+}
+
+.mainNav li{
+    display: inline-block;
+    margin-left: 40px;
+}
+
+
+.mainNav li a:link,
+.mainNav li a:visited{
+    padding-bottom: 10px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border .2s ease;
+    transition: border .2s ease;
+    
+}
+
+.mainNav li a:hover,
+.mainNav li a:active{
+    border-bottom: 2px solid #e67e22;
+}
+
+.mobileNavIcon {
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.mobileNavIcon .menuIcon{
+    --ionicon-stroke-width: 32px;
+    font-size: 200%;
+    color:  #fff;
+    /* background-color: blue; */
+}
+
+/* ---------------------------------------- */
+/* Sticky Navigation */
+/* ---------------------------------------- */
+
+
+.sticky{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    z-index: 1000; /* Fixing stick going behind elements*/
+    background-color: rgba(255, 255, 255, 0.973);
+    box-shadow: 0 2px 3px rgba(136, 136, 136, 0.493);
+}
+
+.sticky .mainNav{
+    margin-top: 19px;
+}
+
+
+.sticky .mainNav li a:link,
+.sticky .mainNav li a:visited{
+    padding: 16px 0;
+    color: #333;
+    font-size:85% ;
+    text-transform: uppercase;
+}
+
+.sticky .logo{
+    display: none;
+}
+
+.sticky .logoBlack{
+    display: block;
+}
+
+
+
+/*-------------------------------------*/
+/* FEATURES */
+/*-------------------------------------*/
+
+.sectionFeatures .longCopy{
+    margin-bottom: 40px;
+}
+
+/*-------------------------------------*/
+/* MEALS */
+/*-------------------------------------*/
+
+.sectionMeals{
+    padding: 0;
+}
+
+.mealsShowcase {
+    list-style: none;
+    width: 100%;
+    
+}
+
+.mealsShowcase li{
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+/*
+.mealsShowcase ul:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+*/
+
+.mealPhoto{
+    width:100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.mealPhoto img{
+    opacity: 0.7;
+    width:100%;
+    height: auto;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition: opacity .5s ease, -webkit-transform .5s ease;
+    transition: opacity .5s ease, -webkit-transform .5s ease;
+    transition: transform .5s ease, opacity .5s ease;
+    transition: transform .5s ease, opacity .5s ease, -webkit-transform .5s ease;
+}
+
+.mealPhoto img:hover{
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+    opacity: 1;
+}
+
+/*-------------------------------------*/
+/* HOW IT WORKS */
+/*-------------------------------------*/
+
+.sectionSteps{
+    background: #f4f4f4;
+}
+
+.stepsBox:first-child{
+    text-align: right; /*this property also works on all inline and inline-block elements*/
+    padding-right: 3%; 
+    margin-top: 30px;
+}
+
+
+.stepsBox:last-child{
+    padding-left: 3%;
+    margin-top: 70px;
+}
+
+.appScreen{
+    width: 40%;
+}
+.workSteps{
+    margin-bottom: 50px;
+    
+}
+
+.workSteps:last-of-type{
+    margin-bottom: 80px;
+}
+
+.workSteps div{
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    /* display: inline-block; */
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 150%;
+    margin-right: 25px;
+}
+
+.btnApp:link, .btnApp:visited{
+    border: 0;
+}
+
+.btnApp img{
+    height: 50px;
+    width: auto;
+    margin-right: 20px;
+}
+
+/*-------------------------------------*/
+/* CITIES */
+/*-------------------------------------*/
+
+.box img{
+    width: 100%;
+    height: auto;
+    margin-bottom:15px; 
+}
+
+.cityFeature{
+    margin-bottom: 5px;
+}
+
+/*-------------------------------------*/
+/* Testimonials */
+/*-------------------------------------*/
+
+.sectionTestimonials{
+    background: -webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.781)),to(rgba(0, 0, 0, 0.781))) , url(../img/back-customers.jpg);
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0.781),rgba(0, 0, 0, 0.781)) , url(../img/back-customers.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+blockquote{
+    line-height: 140%;
+    font-size: 100%;
+    font-style: italic;
+    position: relative;
+    padding: 2%;
+    margin-top: 40px;
+}
+
+blockquote::before{
+    content: "\201C";
+    font-size: 500%;
+    display: block;         /*no need beacause alread positioned absolute*/
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+cite{
+    display: block;
+    margin-top: 25px;
+    font-size: 90%;
+}
+
+cite img{
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+
+/*-------------------------------------*/
+/* Meal Plans */
+/*-------------------------------------*/
+
+.sectionPlans{
+    background: #f4f4f4;
+}
+
+.planBox{
+    background: #fff;
+    width: 90%;
+    margin: auto; /* Same as giving margin left */
+    border-radius: 5px;
+    box-shadow: 0 2px 2px #e3e3e3;
+
+}
+
+.planBox div{
+    padding: 15px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.planBox div:first-child{
+    background-color: #fcfcfc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.planBox div:last-child{
+    text-align: center;
+    border: 0;
+}
+
+.planPrice{
+    font-size: 250%;
+    margin-bottom: 10px;
+    font-weight: 100;
+    color: #e67e22;
+}
+.planPrice span{
+    font-size: 35%;
+    font-weight: 300;
+}
+.planPriceMeal{
+    font-size: 87%;
+}
+
+.planBox li{
+    margin: 10px 0;
+    font-size: 95%;
+    font-weight: 300;
+}
+
+/*-------------------------------------*/
+/* Contact Form */
+/*-------------------------------------*/
+
+.contactForm{
+    width: 60%; /* Never put auto in width attribute*/
+    margin: 0 auto;
+}
+
+.contactForm .span-2-of-3,input[placeholder],select,textarea{    
+    font-size: 88%;
+    color: rgba(99, 98, 98, 0.842);
+    /* This color used for font works for all inputs in mozilla but only in two inputs in Google Chrome.... Moreover the Select input is always darker than other inputs in mozilla but it can be matched with others in Google Chrome */
+}
+/* This above is the bit of code to compensate for the odd look in non-mac browsers for the input elements */
+
+input[type=text],
+input[type=email],
+select,textarea{
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+textarea{
+    height: 100px;
+}
+
+input[type=checkbox]{
+    margin: 10px 5px 10px 0;
+}
+
+
+/*-------------------------------------*/
+/* Footer */
+/*-------------------------------------*/
+
+footer{
+    background: #333;
+    color: #888;
+    padding: 60px;
+    font-size: 80%;;
+}
+
+.footerNav{
+    float:left;
+}
+
+.socialLinks{
+    float: right;
+}
+
+.footerNav li,
+.socialLinks li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footerNav li:last-child,
+.socialLinks li:last-child{
+    margin-right: 0;
+}
+
+.socialLinks li a:link,
+.socialLinks li a:visited,
+.footerNav li a:link,
+.footerNav li a:visited{
+    text-decoration: none;
+    border: 0;
+    color: #888; /* Cant style it in footer tag as overwriting of a tag is needed to be done*/
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.socialLinks li a:link,
+.socialLinks li a:visited{
+    font-size: 140%;
+}
+
+.footerNav li a:hover,
+.footerNav li a:active{
+    color: #ddd;
+}
+
+footer p{
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+/*-------------------------------------*/
+/* Animations on Scroll */
+/*-------------------------------------*/
+
+.jsWp1,
+.jsWp2,
+.jsWp3{
+    opacity: 0;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+}
+
+.jsWp1.animated,
+.jsWp2.animated,
+.jsWp3.animated {
+    opacity: 1;
+}
+
+
+
+/* This is the end */
